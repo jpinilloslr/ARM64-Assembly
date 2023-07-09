@@ -2,7 +2,6 @@
 *  Copy source to destination buffer 
 *  removing duplicated bytes.
 *
-*
 ******************************************/
 .include "macros.S"
 

@@ -2,7 +2,6 @@
 *  Write buffer to stdout.
 *  str: Pointer to null terminated string.
 *
-*
 ******************************************/
 .macro	print	str
     ldr     x0, =\str
@@ -28,7 +27,6 @@
 /******************************************
 *  Exit with code.
 *  code: Exit code.
-*
 *
 ******************************************/
 .macro exit code
