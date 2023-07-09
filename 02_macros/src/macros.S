@@ -3,20 +3,17 @@
 *  str: Pointer to null terminated string.
 *
 ******************************************/
-.macro	print	str
+.macro  print   str
     ldr     x0, =\str
     mov     x1, x0
-
 1: 
     ldrb    w2, [x1]
     cmp     x2, #0
     beq     2f
     add     x1, x1, #1
     b       1b
-
 2:
-	sub     x3, x1, x0
-
+    sub     x3, x1, x0
     mov     x0, #1
     ldr     x1, =\str
     mov     x2, x3
