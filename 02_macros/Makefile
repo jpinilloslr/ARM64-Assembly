@@ -5,13 +5,16 @@ TARGET = $(BUILD_DIR)/macros
 
 all: $(TARGET)
 
-$(OBJ_DIR)/main.o: $(SRC_DIR)/*.S
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.S
 	mkdir -p $(@D)
-	as -Isrc -o $(OBJ_DIR)/main.o $(SRC_DIR)/main.S
+	as -g -I$(SRC_DIR) -o $@ $<
 
-$(TARGET): $(OBJ_DIR)/main.o
+OBJS = $(patsubst $(SRC_DIR)/%.S, $(OBJ_DIR)/%.o, $(wildcard $(SRC_DIR)/*.S))
+
+$(TARGET): $(OBJS)
 	mkdir -p $(@D)
-	ld $(OBJ_DIR)/main.o -o $(TARGET)
+	ld $(OBJS) -o $@
 
 clean:
 	rm -rf $(OBJ_DIR) $(BUILD_DIR)
+

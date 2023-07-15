@@ -1,7 +1,7 @@
 SRC_DIR = src
 OBJ_DIR = obj
 BUILD_DIR = build
-TARGET = $(BUILD_DIR)/remdups
+TARGET = $(BUILD_DIR)/switch
 
 all: $(TARGET)
 
